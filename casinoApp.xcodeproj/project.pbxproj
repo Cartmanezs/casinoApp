@@ -13,6 +13,10 @@
 		CE0A9961262D736700754401 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0A995F262D736700754401 /* Main.storyboard */; };
 		CE0A9963262D736A00754401 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0A9962262D736A00754401 /* Assets.xcassets */; };
 		CE0A9966262D736A00754401 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0A9964262D736A00754401 /* LaunchScreen.storyboard */; };
+		CE0A9970262D784000754401 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A996F262D784000754401 /* Model.swift */; };
+		CE0A9973262D788000754401 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A9972262D788000754401 /* Utils.swift */; };
+		CE0A9976262D790D00754401 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE0A9975262D790D00754401 /* win.wav */; };
+		CE0A9979262D791500754401 /* spin.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE0A9978262D791500754401 /* spin.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		CE0A9962262D736A00754401 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0A9965262D736A00754401 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE0A9967262D736A00754401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE0A996F262D784000754401 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CE0A9972262D788000754401 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CE0A9975262D790D00754401 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = win.wav; path = "../../../../Downloads/iOS-Proj-CasinoGame-master/Casino/Casino/win.wav"; sourceTree = "<group>"; };
+		CE0A9978262D791500754401 /* spin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = spin.wav; path = "../../../../Downloads/iOS-Proj-CasinoGame-master/Casino/Casino/spin.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				CE0A9962262D736A00754401 /* Assets.xcassets */,
 				CE0A9964262D736A00754401 /* LaunchScreen.storyboard */,
 				CE0A9967262D736A00754401 /* Info.plist */,
+				CE0A996F262D784000754401 /* Model.swift */,
+				CE0A9972262D788000754401 /* Utils.swift */,
+				CE0A9975262D790D00754401 /* win.wav */,
+				CE0A9978262D791500754401 /* spin.wav */,
 			);
 			path = casinoApp;
 			sourceTree = "<group>";
@@ -124,7 +136,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0A9979262D791500754401 /* spin.wav in Resources */,
 				CE0A9966262D736A00754401 /* LaunchScreen.storyboard in Resources */,
+				CE0A9976262D790D00754401 /* win.wav in Resources */,
 				CE0A9963262D736A00754401 /* Assets.xcassets in Resources */,
 				CE0A9961262D736700754401 /* Main.storyboard in Resources */,
 			);
@@ -137,9 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0A9973262D788000754401 /* Utils.swift in Sources */,
 				CE0A995E262D736700754401 /* ViewController.swift in Sources */,
 				CE0A995A262D736700754401 /* AppDelegate.swift in Sources */,
 				CE0A995C262D736700754401 /* SceneDelegate.swift in Sources */,
+				CE0A9970262D784000754401 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
