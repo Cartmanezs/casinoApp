@@ -16,6 +16,7 @@
 		CE0A9970262D784000754401 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A996F262D784000754401 /* Model.swift */; };
 		CE0A9973262D788000754401 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A9972262D788000754401 /* Utils.swift */; };
 		CE0A997C262D975000754401 /* WebDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A997B262D974F00754401 /* WebDetailViewController.swift */; };
+		CE49A083262D9DB200B7C155 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE49A082262D9DB200B7C155 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CE0A9983262D9ABC00754401 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		CE0A9985262D9ACC00754401 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		CE0A9986262D9ACC00754401 /* spin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spin.wav; sourceTree = "<group>"; };
+		CE49A082262D9DB200B7C155 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		CE0A9981262D9AAB00754401 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				CE49A082262D9DB200B7C155 /* Notifications.swift */,
 				CE0A9959262D736700754401 /* AppDelegate.swift */,
 				CE0A995B262D736700754401 /* SceneDelegate.swift */,
 				CE0A995F262D736700754401 /* Main.storyboard */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0A9973262D788000754401 /* Utils.swift in Sources */,
+				CE49A083262D9DB200B7C155 /* Notifications.swift in Sources */,
 				CE0A995E262D736700754401 /* ViewController.swift in Sources */,
 				CE0A997C262D975000754401 /* WebDetailViewController.swift in Sources */,
 				CE0A995A262D736700754401 /* AppDelegate.swift in Sources */,
@@ -348,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Igor.casinoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -367,7 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Igor.casinoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

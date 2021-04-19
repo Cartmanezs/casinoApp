@@ -96,17 +96,29 @@
                                             <segue destination="zx9-t4-qLC" kind="show" id="avW-Ko-Zhf"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSU-y7-P0X">
+                                        <rect key="frame" x="193" y="87" width="32" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Notif"/>
+                                        <connections>
+                                            <action selector="notificatoinButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HB4-uD-XzC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="centerY" secondItem="v9g-lQ-4jV" secondAttribute="centerY" id="1OT-bb-DZa"/>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="height" secondItem="v9g-lQ-4jV" secondAttribute="height" id="8Sv-xU-56M"/>
                                     <constraint firstItem="ymt-Ob-xmu" firstAttribute="top" secondItem="Kld-JM-gDY" secondAttribute="bottom" constant="5" id="CV2-Yp-WRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="TSU-y7-P0X" secondAttribute="trailing" id="DbQ-nL-n8s"/>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="centerY" secondItem="zIq-0r-Sv6" secondAttribute="centerY" id="EMa-yj-Q7n"/>
                                     <constraint firstItem="ymt-Ob-xmu" firstAttribute="leading" secondItem="zIq-0r-Sv6" secondAttribute="leading" constant="8" id="LZQ-DS-gBk"/>
+                                    <constraint firstItem="TSU-y7-P0X" firstAttribute="top" secondItem="v9g-lQ-4jV" secondAttribute="bottom" constant="2" id="PCc-3h-Zm2"/>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="leading" secondItem="zIq-0r-Sv6" secondAttribute="leading" id="SW7-DP-ma1"/>
                                     <constraint firstAttribute="bottom" secondItem="ymt-Ob-xmu" secondAttribute="bottom" constant="5" id="Te6-1Y-4Rz"/>
+                                    <constraint firstItem="TSU-y7-P0X" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ymt-Ob-xmu" secondAttribute="trailing" constant="8" symbolic="YES" id="Y7W-lY-iwo"/>
                                     <constraint firstAttribute="trailing" secondItem="v9g-lQ-4jV" secondAttribute="trailing" id="jxi-cc-8nu"/>
                                     <constraint firstItem="v9g-lQ-4jV" firstAttribute="leading" secondItem="Kld-JM-gDY" secondAttribute="trailing" id="kYx-PE-Vue"/>
+                                    <constraint firstAttribute="bottom" secondItem="TSU-y7-P0X" secondAttribute="bottom" constant="2" id="nPa-8S-ft4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdN-kX-J7E">

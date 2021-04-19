@@ -31,8 +31,22 @@ class ViewController: UIViewController {
         spinAction()
     }
     
+    @IBAction func notificatoinButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: notificationType,
+                                      message: "After 2 seconds " + notificationType + " will appear",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { [self] (action) in
+            notifications.scheduleNotification(notifaicationType: notificationType)
+        }
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+        
+    }
     private let images = [#imageLiteral(resourceName: "dimond"),#imageLiteral(resourceName: "crown"),#imageLiteral(resourceName: "bar"),#imageLiteral(resourceName: "seven"),#imageLiteral(resourceName: "cherry"),#imageLiteral(resourceName: "lemon")]
-    
+    private let notifications = Notifications()
+    private let notificationType = "Place a bet"
     private var cashToRisk : Int = 10{
         didSet{
             cashToRiskLabel.text = "\(currentCash)$"
@@ -49,8 +63,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        notifications.requestAutorization()
         startGame()
-        
         // swipeDown GestureRecognizer
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeDown.direction = UISwipeGestureRecognizer.Direction.down
