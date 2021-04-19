@@ -63,5 +63,4 @@ extension UIImage{
         }
         return UIImage(cgImage: imageRef)
     }
-  
 }

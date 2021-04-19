@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class Model{
+class Model {
     
     fileprivate static let modelInstance = Model()
     
@@ -52,7 +52,4 @@ class Model{
         player = try? AVAudioPlayer(contentsOf: url)
         player?.play()
     }
-    
-    
-    
 }

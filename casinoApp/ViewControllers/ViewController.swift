@@ -7,16 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    private let images = [#imageLiteral(resourceName: "dimond"),#imageLiteral(resourceName: "crown"),#imageLiteral(resourceName: "bar"),#imageLiteral(resourceName: "seven"),#imageLiteral(resourceName: "cherry"),#imageLiteral(resourceName: "lemon")]
-    
+class ViewController: UIViewController {
+        
     @IBOutlet weak var machineImageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var barImageView: UIImageView!
     @IBOutlet weak var userIndicatorlabel: UILabel!
     @IBOutlet weak var cashImageView: UIImageView!
     @IBOutlet weak var cashToRiskLabel: UILabel!
+    @IBOutlet weak var cashLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
     @IBAction func stepperAction(_ sender: UIStepper) {
@@ -28,11 +27,28 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
-    @IBOutlet weak var cashLabel: UILabel!
+    @IBAction func spinBarAction(_ sender: UITapGestureRecognizer) {
+        spinAction()
+    }
+    
+    private let images = [#imageLiteral(resourceName: "dimond"),#imageLiteral(resourceName: "crown"),#imageLiteral(resourceName: "bar"),#imageLiteral(resourceName: "seven"),#imageLiteral(resourceName: "cherry"),#imageLiteral(resourceName: "lemon")]
+    
+    private var cashToRisk : Int = 10{
+        didSet{
+            cashToRiskLabel.text = "\(currentCash)$"
+        }
+    }
+    
+    private var currentCash : Int{
+        guard let cash = cashLabel.text, !(cashLabel.text?.isEmpty)! else {
+            return 0
+        }
+        return Int(cash.replacingOccurrences(of: "$", with: ""))!
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         startGame()
         
         // swipeDown GestureRecognizer
@@ -41,33 +57,20 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
         self.view.addGestureRecognizer(swipeDown)
     }
 
-    // Bet amount
-    var cashToRisk : Int = 10{
-        didSet{//update ui
-            cashToRiskLabel.text = "\(currentCash)$"
-        }
-    }
-    
-    // get current displayed cash, remove '$'
-    var currentCash : Int{
-        guard let cash = cashLabel.text, !(cashLabel.text?.isEmpty)! else {
-            return 0
-        }
-        return Int(cash.replacingOccurrences(of: "$", with: ""))!
-    }
-    
-    func startGame(){
-        if Model.instance.isFirstTime(){ // check if it's first time playing
+    private func startGame(){
+        if Model.instance.isFirstTime(){
             Model.instance.updateScore(label: cashLabel, cash: 500)
-        }else{ // get last saved score
+        }else{
             cashLabel.text = "\(Model.instance.getScore())$"
-        } // set max bet
+        }
         stepper.maximumValue = Double(currentCash)
+        stepper.backgroundColor = .red
+        stepper.layer.cornerRadius = 6
     }
     
-    func roll(){ // roll pickerview
+    private func roll() {
         var delay : TimeInterval = 0
-        // iterate over each component, set random img
+        
         for i in 0..<pickerView.numberOfComponents{
             DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
                 self.randomSelectRow(in: i)
@@ -76,15 +79,14 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
-    // get random number
-    func randomSelectRow(in comp : Int){
+
+    private func randomSelectRow(in comp : Int){
         let r = Int(arc4random_uniform(UInt32(8 * images.count))) + images.count
         pickerView.selectRow(r, inComponent: comp, animated: true)
-        
     }
     
     
-    func checkWin(){
+    private func checkWin(){
         
         var lastRow = -1
         var counter = 0
@@ -99,7 +101,7 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
             }
         }
         
-        if counter == 3{ // winning
+        if counter == 3 {
             Model.instance.play(sound: Constant.win_sound)
             animate(view: machineImageView, images: [#imageLiteral(resourceName: "machine"),#imageLiteral(resourceName: "machine_off")], duration: 1, repeatCount: 15)
             animate(view: cashImageView, images: [#imageLiteral(resourceName: "change"),#imageLiteral(resourceName: "extra_change")], duration: 1, repeatCount: 15)
@@ -107,15 +109,14 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
 
             userIndicatorlabel.text = "YOU WON \(200 + cashToRisk * 2)$"
             Model.instance.updateScore(label: cashLabel,cash: (currentCash + 200) + (cashToRisk * 2))
-        } else { // losing
+        } else {
             userIndicatorlabel.text = "TRY AGAIN"
             Model.instance.updateScore(label: cashLabel,cash: (currentCash - cashToRisk))
         }
         
-        // if cash is over
         if currentCash <= 0 {
             gameOver()
-        }else{  // update bet stepper
+        }else{
             if Int(stepper.value) > currentCash {
                 stepper.maximumValue = Double(currentCash)
                 cashToRisk = currentCash
@@ -124,7 +125,7 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
-    func gameOver(){ // when game is over, show alert
+    private func gameOver() {
         let alert = UIAlertController(title: "Game Over", message: "You have \(currentCash)$ \nPlay Again?", preferredStyle: .alert)
         alert.addAction( UIAlertAction(title: "OK", style: .default, handler: { (_) in
             self.startGame()
@@ -132,14 +133,9 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
         self.present(alert, animated: true, completion: nil)
     }
     
-    // when spining
-    @IBAction func spinBarAction(_ sender: UITapGestureRecognizer) {
-        spinAction()
-    }
-    
-    func spinAction(){
-        barImageView.isUserInteractionEnabled = false // disable clicking
-        // animation of bandit handle
+    private func spinAction() {
+        barImageView.isUserInteractionEnabled = false
+
         animate(view: barImageView, images: #imageLiteral(resourceName: "mot").spriteSheet(cols: 14, rows: 1), duration: 0.5, repeatCount: 1)
         userIndicatorlabel.text = ""
         Model.instance.play(sound: Constant.spin_sound)
@@ -148,10 +144,10 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
             self.checkWin()
             self.barImageView.isUserInteractionEnabled = true
         }
-        
     }
+}
 
-    
+extension ViewController:  UIPickerViewDataSource, UIPickerViewDelegate {
     //MARK: - UIPickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
@@ -178,7 +174,4 @@ class ViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDel
             }
         }
     }
-   
-
 }
-

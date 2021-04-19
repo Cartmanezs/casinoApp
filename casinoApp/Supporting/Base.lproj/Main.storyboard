@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,8 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFR-b1-C2h" userLabel="top">
+                                <rect key="frame" x="0.0" y="8.5" width="375" height="367"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="Qgo-L2-flG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
+                                    </imageView>
+                                    <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-mx-Xwp">
+                                        <rect key="frame" x="28" y="170" width="319" height="146.5"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="tW6-vP-6tf"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Nzk-Wl-jgM"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="top" secondItem="Qgo-L2-flG" secondAttribute="top" constant="170" id="3Ne-yo-bt4"/>
+                                    <constraint firstItem="Qgo-L2-flG" firstAttribute="leading" secondItem="yFR-b1-C2h" secondAttribute="leading" id="3yi-Mh-3xO"/>
+                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="width" secondItem="Qgo-L2-flG" secondAttribute="width" multiplier="0.85" id="9mH-fa-p5W"/>
+                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="centerX" secondItem="yFR-b1-C2h" secondAttribute="centerX" id="DxB-jX-r0o"/>
+                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="height" secondItem="Qgo-L2-flG" secondAttribute="height" multiplier="0.4" id="S6K-36-Ivv"/>
+                                    <constraint firstItem="Qgo-L2-flG" firstAttribute="top" secondItem="yFR-b1-C2h" secondAttribute="top" id="VQL-vZ-DXq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qgo-L2-flG" secondAttribute="bottom" id="h9C-uI-Fhe"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qgo-L2-flG" secondAttribute="trailing" id="oJr-s3-DKN"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qq-E7-vYb">
-                                <rect key="frame" x="0.0" y="388.5" width="375" height="166.5"/>
+                                <rect key="frame" x="0.0" y="375.5" width="375" height="166.5"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="single_mot" translatesAutoresizingMaskIntoConstraints="NO" id="Ck5-II-J48">
                                         <rect key="frame" x="319" y="8" width="37.5" height="133"/>
@@ -48,52 +74,62 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIq-0r-Sv6">
-                                <rect key="frame" x="0.0" y="555" width="225" height="112"/>
+                                <rect key="frame" x="0.0" y="542" width="225" height="125"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="change" translatesAutoresizingMaskIntoConstraints="NO" id="Kld-JM-gDY">
-                                        <rect key="frame" x="0.0" y="33.5" width="45" height="45"/>
+                                        <rect key="frame" x="0.0" y="40" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Kld-JM-gDY" secondAttribute="height" multiplier="1:1" id="IhO-1b-ObP"/>
                                             <constraint firstAttribute="height" constant="45" id="SVT-7V-OOz"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="v9g-lQ-4jV">
-                                        <rect key="frame" x="45" y="33.5" width="180" height="45"/>
+                                        <rect key="frame" x="45" y="40" width="180" height="45"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="35"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymt-Ob-xmu">
+                                        <rect key="frame" x="8" y="90" width="172" height="30"/>
+                                        <state key="normal" title="LINK FOR MORE CASINO"/>
+                                        <connections>
+                                            <segue destination="zx9-t4-qLC" kind="show" id="avW-Ko-Zhf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="centerY" secondItem="v9g-lQ-4jV" secondAttribute="centerY" id="1OT-bb-DZa"/>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="height" secondItem="v9g-lQ-4jV" secondAttribute="height" id="8Sv-xU-56M"/>
+                                    <constraint firstItem="ymt-Ob-xmu" firstAttribute="top" secondItem="Kld-JM-gDY" secondAttribute="bottom" constant="5" id="CV2-Yp-WRH"/>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="centerY" secondItem="zIq-0r-Sv6" secondAttribute="centerY" id="EMa-yj-Q7n"/>
+                                    <constraint firstItem="ymt-Ob-xmu" firstAttribute="leading" secondItem="zIq-0r-Sv6" secondAttribute="leading" constant="8" id="LZQ-DS-gBk"/>
                                     <constraint firstItem="Kld-JM-gDY" firstAttribute="leading" secondItem="zIq-0r-Sv6" secondAttribute="leading" id="SW7-DP-ma1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ymt-Ob-xmu" secondAttribute="bottom" constant="5" id="Te6-1Y-4Rz"/>
                                     <constraint firstAttribute="trailing" secondItem="v9g-lQ-4jV" secondAttribute="trailing" id="jxi-cc-8nu"/>
                                     <constraint firstItem="v9g-lQ-4jV" firstAttribute="leading" secondItem="Kld-JM-gDY" secondAttribute="trailing" id="kYx-PE-Vue"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdN-kX-J7E">
-                                <rect key="frame" x="225" y="555" width="150" height="112"/>
+                                <rect key="frame" x="225" y="542" width="150" height="125"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="VVh-by-VN4">
-                                        <rect key="frame" x="28" y="4" width="94" height="104"/>
+                                        <rect key="frame" x="28" y="4" width="94" height="117"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sIU-Sk-rT5">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="36.5"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="10" maximumValue="500" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7CQ-hW-nsq">
-                                                <rect key="frame" x="0.0" y="36" width="94" height="32"/>
-                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="frame" x="0.0" y="40.5" width="94" height="36"/>
+                                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                                 <connections>
                                                     <action selector="stepperAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Hzj-bv-Inr"/>
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="eeK-Of-syv">
-                                                <rect key="frame" x="0.0" y="72" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="80.5" width="94" height="36.5"/>
                                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Book" family="Bodoni 72" pointSize="21"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -106,31 +142,6 @@
                                     <constraint firstAttribute="bottom" secondItem="VVh-by-VN4" secondAttribute="bottom" constant="4" id="Rle-CA-8Fa"/>
                                     <constraint firstItem="VVh-by-VN4" firstAttribute="centerX" secondItem="GdN-kX-J7E" secondAttribute="centerX" id="SXR-ol-Q0L"/>
                                     <constraint firstItem="VVh-by-VN4" firstAttribute="top" secondItem="GdN-kX-J7E" secondAttribute="top" constant="4" id="gmt-5h-oeU"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFR-b1-C2h" userLabel="top">
-                                <rect key="frame" x="0.0" y="21.5" width="375" height="367"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="machine" translatesAutoresizingMaskIntoConstraints="NO" id="Qgo-L2-flG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
-                                    </imageView>
-                                    <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-mx-Xwp">
-                                        <rect key="frame" x="28" y="160" width="319" height="146.5"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="tW6-vP-6tf"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Nzk-Wl-jgM"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="top" secondItem="Qgo-L2-flG" secondAttribute="top" constant="160" id="3Ne-yo-bt4"/>
-                                    <constraint firstItem="Qgo-L2-flG" firstAttribute="leading" secondItem="yFR-b1-C2h" secondAttribute="leading" id="3yi-Mh-3xO"/>
-                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="width" secondItem="Qgo-L2-flG" secondAttribute="width" multiplier="0.85" id="9mH-fa-p5W"/>
-                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="centerX" secondItem="yFR-b1-C2h" secondAttribute="centerX" id="DxB-jX-r0o"/>
-                                    <constraint firstItem="HK4-mx-Xwp" firstAttribute="height" secondItem="Qgo-L2-flG" secondAttribute="height" multiplier="0.4" id="S6K-36-Ivv"/>
-                                    <constraint firstItem="Qgo-L2-flG" firstAttribute="top" secondItem="yFR-b1-C2h" secondAttribute="top" id="VQL-vZ-DXq"/>
-                                    <constraint firstAttribute="bottom" secondItem="Qgo-L2-flG" secondAttribute="bottom" id="h9C-uI-Fhe"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qgo-L2-flG" secondAttribute="trailing" id="oJr-s3-DKN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -162,6 +173,7 @@
                         <outlet property="pickerView" destination="HK4-mx-Xwp" id="h3u-XU-beh"/>
                         <outlet property="stepper" destination="7CQ-hW-nsq" id="8Yd-Kp-DPC"/>
                         <outlet property="userIndicatorlabel" destination="yVP-Ls-5MY" id="eUv-xh-sgy"/>
+                        <segue destination="zx9-t4-qLC" kind="show" id="Wd9-xk-rFi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -171,13 +183,38 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-23" y="77"/>
+            <point key="canvasLocation" x="-23.199999999999999" y="76.911544227886068"/>
+        </scene>
+        <!--Web Detail View Controller-->
+        <scene sceneID="uTC-S8-pkv">
+            <objects>
+                <viewController id="zx9-t4-qLC" customClass="WebDetailViewController" customModule="casinoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XAW-KL-enI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="at6-yF-Hq7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oq6-q2-iwv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l4q-id-E3x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="71"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wd9-xk-rFi"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bottom" width="2748" height="1984"/>
         <image name="change" width="60" height="60"/>
         <image name="machine" width="2748" height="3000"/>
         <image name="single_mot" width="328" height="1631"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
